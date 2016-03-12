@@ -1,0 +1,14 @@
+<h1>Tareas#index</h1>
+<p>Find me in app/views/tareas/index.html.erb</p>
+
+<p>
+Tu tienes <%= @numerotarea %>
+</p>
+<ul>
+<% @tareas.each do |t| %>
+
+	<li> <%= t.contenido %> </li>
+
+<% end %>
+
+</ul>
