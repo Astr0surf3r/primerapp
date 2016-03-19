@@ -2,3 +2,13 @@
 <p>Find me in app/views/pages/bienvenido.html.erb</p>
 
 <%= link_to 'Agrega Tarea', "#" %>
+
+<p>
+Tu tienes <%= @numerotarea %>
+</p>
+<ul>
+<% @tareas.each do |t| %>
+
+	<li> <%= t.contenido %> </li>
+
+<% end %>
