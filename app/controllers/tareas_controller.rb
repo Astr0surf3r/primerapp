@@ -22,6 +22,32 @@ class TareasController < ApplicationController
   	end
   end
 
+  def edit
+      
+      @tarea = Tarea.find(params[:id])
+
+  end
+
+  def update
+
+      @tarea = Tarea.find(params[:id])
+
+      @tarea.update_attributes(tarea_params)
+
+      redirect_to root_path
+      
+  end
+
+  def destroy
+
+  	@tarea = Tarea.find(params[:id])
+
+  	@tarea.destroy
+
+  	redirect_to root_path
+
+  end
+
   private
 
   def tarea_params

@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   #get 'tareas/new'
 
-  resources :tareas, :only => [:new, :create]
+  #resources :tareas, :only => [:new, :show, :create, :index, :destroy]
 
+  resources :tareas 
+  
   root 'pages#bienvenido'
 
   #get 'pages/bienvenido'

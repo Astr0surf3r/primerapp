@@ -1,7 +1,7 @@
 <h1>Pages#bienvenido</h1>
 <p>Find me in app/views/pages/bienvenido.html.erb</p>
 
-<%= link_to 'Agrega Tarea', "#" %>
+<%= link_to 'Agrega Tarea', new_tarea_path %>
 
 <p>
 Tu tienes <%= @numerotarea %>
@@ -9,6 +9,8 @@ Tu tienes <%= @numerotarea %>
 <ul>
 <% @tareas.each do |t| %>
 
-	<li> <%= t.contenido %> </li>
+	<li> <%= t.contenido %> | <%= time_ago_in_words(t.created_at) %> | 
+		<%= link_to 'Borrar Tarea', t, data: {confirm: "Quieres Borrar?" }, method: :delete %> |
+		<%= link_to 'Modificar Tarea', edit_tarea_path(t) %> </li>
 
 <% end %>
