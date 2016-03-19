@@ -22,6 +22,12 @@ class TareasController < ApplicationController
   	end
   end
 
+  def show
+      
+      @tarea = Tarea.find(params[:id])
+
+  end
+
   def edit
       
       @tarea = Tarea.find(params[:id])

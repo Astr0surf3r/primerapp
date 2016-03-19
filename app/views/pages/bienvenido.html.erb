@@ -4,13 +4,15 @@
 <%= link_to 'Agrega Tarea', new_tarea_path %>
 
 <p>
-Tu tienes <%= @numerotarea %>
+Tu tienes <%= @numerotarea %> tareas
 </p>
 <ul>
 <% @tareas.each do |t| %>
 
-	<li> <%= t.contenido %> | <%= time_ago_in_words(t.created_at) %> | 
+	<li> <%= t.contenido.truncate(10) %> | <%= time_ago_in_words(t.created_at) %> | 
+		<%= link_to 'Muestarme Tarea', tarea_path(t) %> |
 		<%= link_to 'Borrar Tarea', t, data: {confirm: "Quieres Borrar?" }, method: :delete %> |
-		<%= link_to 'Modificar Tarea', edit_tarea_path(t) %> </li>
+		<%= link_to 'Modificar Tarea', edit_tarea_path(t) %> 
+	</li>
 
 <% end %>
