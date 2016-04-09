@@ -3,7 +3,7 @@
 <%= form_for @tarea do |tarea| %>
 
 	<%= tarea.text_field :contenido %>
-
+	<%= tarea.hidden_field :user_id, :value => current_user.id %>
 	<%= tarea.submit %>
 
 <% end %>	

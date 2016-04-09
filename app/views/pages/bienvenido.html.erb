@@ -12,10 +12,16 @@ Tu tienes <%= @numerotarea %> tareas
 <ul>
 <% @tareas.each do |t| %>
 
-	<li> <%= t.contenido.truncate(10) %> | <%= time_ago_in_words(t.created_at) %> | 
-		<%= link_to 'Muestarme Tarea', tarea_path(t) %> |
-		<%= link_to 'Borrar Tarea', t, data: {confirm: "Quieres Borrar?" }, method: :delete %> |
-		<%= link_to 'Modificar Tarea', edit_tarea_path(t) %> 
+	<li> <%= t.contenido.truncate(10) %> por <%= t.user.email %> | <%= time_ago_in_words(t.created_at) %> 
+		<% if user_signed_in? %>
+		| <%= link_to 'Muestarme Tarea', tarea_path(t) %> |
+			<% if current_user == t.user %>
+			
+			<%= link_to 'Borrar Tarea', t, data: {confirm: "Quieres Borrar?" }, method: :delete %> |
+			<%= link_to 'Modificar Tarea', edit_tarea_path(t) %>
+
+			<% end %> 
+		<% end %>
 	</li>
 
 <% end %>
