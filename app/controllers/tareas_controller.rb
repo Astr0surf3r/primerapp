@@ -58,7 +58,7 @@ class TareasController < ApplicationController
 
   def tarea_params
 
-  	params.require(:tarea).permit(:contenido)
+  	params.require(:tarea).permit(:contenido, :user_id)
   
   end
 end
