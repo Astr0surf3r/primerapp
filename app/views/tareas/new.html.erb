@@ -1,7 +1,17 @@
 <p> HOLA PAGINA NUEVA </p>
 
 <%= form_for @tarea do |tarea| %>
+	 <% if @tarea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tarea.errors.count, "error") %> prohibited this tarea from being saved:</h2>
 
+      <ul>
+      <% @tarea.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 	<%= tarea.text_field :contenido %>
 	<%= tarea.hidden_field :user_id, :value => current_user.id %>
 	<%= tarea.submit %>
