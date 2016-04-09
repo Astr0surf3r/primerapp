@@ -4,8 +4,9 @@
 <h1>Pages#bienvenido</h1>
 <p>Find me in app/views/pages/bienvenido.html.erb</p>
 
+<% if user_signed_in? %>
 <%= link_to 'Agrega Tarea', new_tarea_path %>
-
+<% end %>
 <p>
 Tu tienes <%= @numerotarea %> tareas
 </p>
